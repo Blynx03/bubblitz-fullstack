@@ -20,7 +20,7 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/score", scoreRoutes);
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
     console.log(`Server is running at PORT ${PORT}`);
 });
 
