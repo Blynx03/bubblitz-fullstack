@@ -74,9 +74,6 @@ const GameOver = ({ score, finishedAllLevels }: GameOverProps) => {
       value,
       time
     }
-  
-    const data = await submitScore(scoreData); // returns the top 25 players info
-    setLeaderBoardData(data);
 
     // handle submit is executed because the player made it to the top 25, so leaderboard view should be top-players
     if (finishedAllLevels) {
@@ -85,6 +82,9 @@ const GameOver = ({ score, finishedAllLevels }: GameOverProps) => {
       setLeaderBoardView('top-players');
       setShowScore(true);
     }
+    
+    const data = await submitScore(scoreData); // returns the top 25 players info
+    setLeaderBoardData(data);
   }
 
   function leaderboardClick() {
@@ -119,11 +119,11 @@ const GameOver = ({ score, finishedAllLevels }: GameOverProps) => {
                     <div className='qualify-sub-title qualify-sub-title-rank'>{`You rank #${rank}`}</div>
                     <div className='qualify-input-name-container'>
                       <div className='qualify-name'>Name: </div>
-                      <input type='text' className='qualify-input-name' id='name' onChange={(e) => handleChange(e, 'name')} placeholder='Enter Name or Nickname'/>
+                      <input id='name' type='text' className='qualify-input-name' onChange={(e) => handleChange(e, 'name')} placeholder='Enter Name or Nickname'/>
                     </div>
                     <div className='qualify-input-email-container'>
                       <div className='qualify-email'>Email:</div>
-                      <input type='email' className='qualify-input-email' id='email' onChange={(e) => handleChange(e, 'email')} placeholder='Enter Email Address'/>
+                      <input id='email' type='email' className='qualify-input-email' onChange={(e) => handleChange(e, 'email')} placeholder='Enter Email Address'/>
                     </div>
                     <Button btnClass='submit-score-btn btn' btnText='SUBMIT' onClick={handleSubmit}/>
                     {inputError && 

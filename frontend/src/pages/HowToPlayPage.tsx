@@ -113,7 +113,7 @@ const HowToPlayPage = () => {
             </div>
             <div className='how-to-play__btn-container'>
                 <Button btnClass='how-to-play-main-page-btn how-to-play-btns btn' btnText='Main Page' onClick={() => handleClick('')} />
-                <Button btnClass='how-to-play-play-btn how-to-play-btns btn' btnText={`Let's play!`} onClick={() => handleClick('play')}  />
+                <Button btnClass='how-to-play-play-btn how-to-play-btns play-btn btn' btnText={`Let's play!`} onClick={() => handleClick('play')}  />
             </div>
     
         <Footer />

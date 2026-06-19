@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { getLeaderboard } from '../api/scoreApi';
 import Button from './Button';
 import getRankBackgroundColor from '../utilities/getRankBackgroundColor';
@@ -13,8 +13,9 @@ type showType = {
 }
 
 const LeaderBoardPage = ({rank}: showType) => {
-  const { leaderBoardView, setLeaderBoardView, leaderBoardData, setLeaderBoardData, setShowPlayBtn, showScore  } = useContext(UserContext) as UserContextType;
+  const { leaderBoardView, setLeaderBoardView, leaderBoardData, setLeaderBoardData, setShowPlayBtn, showScore, setShowScore  } = useContext(UserContext) as UserContextType;
   const viewTopPlayers = leaderBoardView === 'top-players'; 
+  const [ loadingScore, setLoadingScore ] = useState<boolean>(false);
   const gameReset = useGameReset();
   const nav = useNavigate();
 
@@ -25,6 +26,7 @@ const LeaderBoardPage = ({rank}: showType) => {
     const fetchData = async () => {
       const data = await getLeaderboard(viewTopPlayers);
       setLeaderBoardData(data);
+      setLoadingScore(true);
     }
 
     fetchData();
@@ -42,9 +44,10 @@ const LeaderBoardPage = ({rank}: showType) => {
   }
 
   return (
-     !showScore 
+    <div className='leaderboard-container'>
+     { !loadingScore 
       ? <div className='qualify-check'>Checking your score...</div>   
-      : <div className='leaderboard-container' >
+      : <>
           <div className='leaderboard-title'>{ viewTopPlayers ? 'TOP 25 PLAYERS' : 'ALL-TIME RECORD'}</div>
           <div className='leaderboard-header-container'>
             <div className='leaderboard-header leaderboard-header-rank'>Rank</div>
@@ -83,11 +86,13 @@ const LeaderBoardPage = ({rank}: showType) => {
           { viewTopPlayers && 
             <div className='leaderboard-top-player-btn-container'>
               <Button btnClass='leaderboard-all-time-btn leaderboard-page-btn btn' btnText='ALL-TIME Record' onClick={handleLeaderBoard} />
-              <Button btnClass='leaderboard-play-again-btn leaderboard-page-btn btn' btnText='PLAY AGAIN' onClick={() => btnClick('play')}/>
-              <Button btnClass='leaderboard-quit-btn leaderboard-page-btn btn' btnText='MAIN PAGE' onClick={() => btnClick('')} />
+              <Button btnClass='leaderboard-play-again-btn leaderboard-page-btn play-btn btn' btnText='PLAY AGAIN' onClick={() => btnClick('play')}/>
+              {/* <Button btnClass='leaderboard-quit-btn leaderboard-page-btn btn' btnText='MAIN PAGE' onClick={() => btnClick('')} /> */}
             </div>
           }
-        </div>
+        </>
+      }
+    </div>
   )
 }
 

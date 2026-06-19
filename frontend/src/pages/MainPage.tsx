@@ -27,8 +27,8 @@ const MainPage = () => {
         }
         
         if (page === 'leaderboard') {
-            setShowScore(true);
             setLeaderBoardView('all-time');
+            setShowScore(true);
             return
         }
         nav(`/${page}`);
@@ -42,10 +42,14 @@ const MainPage = () => {
             </div>
             <TitleCaption />
             <DemoArea />
-            <div className='main-btn-container'>
-                <Button btnClass='how-to-btn btn' btnText='How To Play' onClick={() => handleClick('how-to-play')} />
-                <Button btnClass='play-btn btn' btnText={`Let's Play`} onClick={() => handleClick('play')} />
-                <Button btnClass='leaderboard-btn btn' btnText='Show Leaderboard' onClick={() => handleClick('leaderboard')} />
+            <div className='main-btns-container'>
+                <div className='main-btns-left-container'>
+                    <Button btnClass='how-to-btn btn' btnText='How To Play' onClick={() => handleClick('how-to-play')} />
+                    <Button btnClass='leaderboard-btn btn' btnText='Show Leaderboard' onClick={() => handleClick('leaderboard')} />
+                </div>
+                <div className='main-btns-right-container'>
+                    <Button btnClass='play-btn btn' btnText={`Let's Play`} onClick={() => handleClick('play')} />
+                </div>
             </div>
             <Footer />
         </div>

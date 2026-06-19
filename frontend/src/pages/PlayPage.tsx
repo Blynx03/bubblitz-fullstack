@@ -303,13 +303,22 @@ const PlayPage = () => {
                 left: `${ball.xStartingPosition}px`,
                 top: `${ball.yStartingPosition}px`,
                 zIndex: ballsCharacter.length - i,
-                animation: ball.isRotating || ball.isChangingSize ? getAnimateValue(ball, ball.isChangingSize) : undefined
+                // animation: ball.isRotating || ball.isChangingSize ? getAnimateValue(ball, ball.isChangingSize) : undefined
+                animation: ball.isChangingSize ? getAnimateValue(ball, ball.isChangingSize) : undefined
+
               }}
                 onAnimationEnd={() => showGameOver ? removeBall(ballRefs.current[ball.ballId]) : null}>
               <div 
                 className={`ball-value ${[6, 9, 66, 68, 86, 89, 98, 99].includes(ball.ballValue) ? 'six-eight-nine' : ''}`}
                 style={{
-                  animation: `${ball.isVanishingValue ? `vanish ${ball.vanishingSpeed}s linear infinite` : ''}`
+                  // animation: `${ball.isVanishingValue ? `vanish ${ball.vanishingSpeed}s linear infinite` : ''}`
+                  animation: ball.isVanishingValue || ball.isRotating 
+                                ? ball.isVanishingValue && ball.isRotating
+                                    ? `vanish ${ball.vanishingSpeed}s linear infinite, ${getAnimateValue(ball)}`
+                                    : ball.isVanishingValue && !ball.isRotating
+                                        ? `vanish ${ball.vanishingSpeed}s linear infinite`
+                                        : `${getAnimateValue(ball)}`
+                                : undefined
                 }}>
               {ball.ballValue}
               </div>
@@ -320,8 +329,8 @@ const PlayPage = () => {
         { showGameOver && <GameOver score={scoreData} finishedAllLevels={finishedAllLevels}/> }
 
       </div>
-      <div className='play-page-btn-container'>
-        <Button btnClass='play-page-btns quit-btn btn' btnText='Quit' onClick={() => btnClick('')} />
+      <div className={ !showPlayBtn ? 'play-page-btn-container' : 'play-page-btn-container1'}>
+        <Button btnClass='play-page-btns play-page-quit-btn quit-btn btn' btnText='Quit' onClick={() => btnClick('')} />
         { showPlayBtn && <Button btnClass='play-page-btns play-btn btn' btnText='Play Again' onClick={() => btnClick('play')} /> }
       </div>
       <Footer />

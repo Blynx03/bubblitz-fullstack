@@ -53,13 +53,21 @@ const DemoArea = () => {
                         left: `${ball.xStartingPosition}px`, 
                         top: `${ball.yStartingPosition}px`, 
                         zIndex: demoBalls.length - i,
-                        animation: ball.isRotating || ball.isChangingSize ? getAnimateValue(ball, ball.isChangingSize) : undefined
+                        // animation: ball.isRotating || ball.isChangingSize ? getAnimateValue(ball, ball.isChangingSize) : undefined
+                        animation: ball.isChangingSize ? getAnimateValue(ball, ball.isChangingSize) : undefined
                     }}>
 
                     <div 
                         className={`ball-value ${[6, 9, 66, 68, 86, 89, 98, 99].includes(ball.ballValue) ? 'six-eight-nine' : ''}`}
                         style={{
-                            animation: `${ball.isVanishingValue ? `vanish ${ball.vanishingSpeed}s linear infinite` : undefined}`
+                            // animation: `${ball.isVanishingValue ? `vanish ${ball.vanishingSpeed}s linear infinite` : undefined}`
+                            animation: ball.isVanishingValue || ball.isRotating 
+                                ? ball.isVanishingValue && ball.isRotating
+                                    ? `vanish ${ball.vanishingSpeed}s linear infinite, ${getAnimateValue(ball)}`
+                                    : ball.isVanishingValue && !ball.isRotating
+                                        ? `vanish ${ball.vanishingSpeed}s linear infinite`
+                                        : `${getAnimateValue(ball)}`
+                                : undefined
                         }}
                     >{ball.ballValue}</div>
                 </div>
