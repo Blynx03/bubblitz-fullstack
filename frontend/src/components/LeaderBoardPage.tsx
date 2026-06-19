@@ -13,7 +13,7 @@ type showType = {
 }
 
 const LeaderBoardPage = ({rank}: showType) => {
-  const { leaderBoardView, setLeaderBoardView, leaderBoardData, setLeaderBoardData, setShowPlayBtn, showScore, setShowScore  } = useContext(UserContext) as UserContextType;
+  const { leaderBoardView, setLeaderBoardView, leaderBoardData, setLeaderBoardData, setShowPlayBtn  } = useContext(UserContext) as UserContextType;
   const viewTopPlayers = leaderBoardView === 'top-players'; 
   const [ loadingScore, setLoadingScore ] = useState<boolean>(false);
   const gameReset = useGameReset();
