@@ -22,7 +22,7 @@ const HowToPlayPage = () => {
     }
 
     return (
-        <div className={`how-to-play ${mode}`}>
+        <div className={`how-to-play-page-container ${mode}`}>
 
          {/* Header  */}
             <div className='how-to-play-header-theme-container'>
@@ -116,9 +116,9 @@ const HowToPlayPage = () => {
                 <Button btnClass='how-to-play-play-btn how-to-play-btns play-btn btn' btnText={`Let's play!`} onClick={() => handleClick('play')}  />
             </div>
     
-        <Footer />
-    </div>
-  )
+            <Footer />
+        </div>
+    )
 }
 
 export default HowToPlayPage

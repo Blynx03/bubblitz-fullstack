@@ -13,7 +13,7 @@ type showType = {
 }
 
 const LeaderBoardPage = ({rank}: showType) => {
-  const { leaderBoardView, setLeaderBoardView, leaderBoardData, setLeaderBoardData, setShowPlayBtn  } = useContext(UserContext) as UserContextType;
+  const { showScore, leaderBoardView, setLeaderBoardView, leaderBoardData, setLeaderBoardData, setShowPlayBtn  } = useContext(UserContext) as UserContextType;
   const viewTopPlayers = leaderBoardView === 'top-players'; 
   const [ loadingScore, setLoadingScore ] = useState<boolean>(false);
   const gameReset = useGameReset();
@@ -46,7 +46,7 @@ const LeaderBoardPage = ({rank}: showType) => {
   return (
     <div className='leaderboard-container'>
      { !loadingScore 
-      ? <div className='qualify-check'>Checking your score...</div>   
+      ? <div className='qualify-check'>{showScore && leaderBoardView === 'all-time' ? 'Loading scores...' : 'Checking your score...'}</div>   
       : <>
           <div className='leaderboard-title'>{ viewTopPlayers ? 'TOP 25 PLAYERS' : 'ALL-TIME RECORD'}</div>
           <div className='leaderboard-header-container'>

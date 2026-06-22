@@ -6,7 +6,7 @@ const Title = () => {
             <span className="bl-title title">bl</span>
             <span className="i-title title">i</span>
             <span className="tz-title title">tz</span>
-            <span className="reg-title">&copy;</span>
+            <span className="reg-title title">&copy;</span>
         </div>
     )
 }

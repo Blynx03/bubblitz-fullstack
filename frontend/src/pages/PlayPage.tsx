@@ -38,7 +38,8 @@ const PlayPage = () => {
           showGameOver,
           setShowGameOver,
           finishedAllLevels, 
-          setFinishedAllLevels
+          setFinishedAllLevels,
+          speakerOn
         } = useContext(UserContext) as UserContextType;
 
 
@@ -55,7 +56,9 @@ const PlayPage = () => {
 
   useEffect(() => {
     stopSound('background');
-    playLoopSound('onplay');
+    if (speakerOn) {
+      playLoopSound('onplay');    
+    }
   },[]);
 
   useEffect(() => {
@@ -187,7 +190,9 @@ const PlayPage = () => {
           const score = {level: maxGameLevel, value: correctBallsPopped, time: gameTimer}
           setScoreData(score);
           stopSound('onplay');
-          playLoopSound('finishedalllevels');
+          if (speakerOn) {
+            playLoopSound('finishedalllevels');
+          }
           setFinishedAllLevels(true);
           setShowGameOver(true);
         // } else if ([10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180].includes(newLevel)) {
@@ -237,7 +242,9 @@ const PlayPage = () => {
         const score = {level: gameLevel, value: correctBallsPopped, time: gameTimer}
         setScoreData(score); // This will be sent to Game Over Page as props
         stopSound('onplay');
-        playSound('gameover');
+        if (speakerOn) {
+          playSound('gameover');
+        }
         setShowGameOver(true);
       } else {
         setShowGameOver(false);

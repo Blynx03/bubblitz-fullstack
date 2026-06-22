@@ -16,7 +16,7 @@ type GameOverProps = {
 }
 
 const GameOver = ({ score, finishedAllLevels }: GameOverProps) => {
-  const { showScore, setShowScore, setLeaderBoardView, setLeaderBoardData, setShowPlayBtn } = useContext(UserContext) as UserContextType; 
+  const { showScore, setShowScore, setLeaderBoardView, setLeaderBoardData, setShowPlayBtn, speakerOn } = useContext(UserContext) as UserContextType; 
   const { level, value, time } = score as submitScoreType;
   const [ isQualified, setIsQualified ] = useState<boolean | null>(null);
   const [ rank, setRank ] = useState<number>(0);
@@ -33,11 +33,15 @@ const GameOver = ({ score, finishedAllLevels }: GameOverProps) => {
 
     if (finishedAllLevels) {
       setIsQualified(true);
-      playLoopSound('finishedalllevels');
+      if (speakerOn) {
+        playLoopSound('finishedalllevels');
+      }
       setRank(1);
     } else {
       stopSound('onplay');
-      playLoopSound('background');
+      if (speakerOn) {
+        playLoopSound('background');
+      }
   
       const fetchQualification = async () => {
         let res = await checkScore(score);

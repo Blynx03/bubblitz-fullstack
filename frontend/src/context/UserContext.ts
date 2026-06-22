@@ -32,6 +32,8 @@ export interface UserContextType {
     setShowGameOver: Dispatch<SetStateAction<boolean>>;
     finishedAllLevels: boolean;
     setFinishedAllLevels: Dispatch<SetStateAction<boolean>>;
+    speakerOn: boolean;
+    setSpeakerOn: Dispatch<SetStateAction<boolean>>;
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);

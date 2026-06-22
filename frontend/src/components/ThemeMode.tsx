@@ -5,8 +5,8 @@ import { getCurrentBackgroundMusic, playLoopSound, stopSound, type SoundKey } fr
 
 const ThemeMode = () => {
 
-    const { isLightTheme, setIsLightTheme } = useContext(UserContext) as UserContextType;
-    const [ speakerOn, setSpeakerOn ] = useState(true);
+    const { isLightTheme, setIsLightTheme, speakerOn, setSpeakerOn } = useContext(UserContext) as UserContextType;
+    // const [ speakerOn, setSpeakerOn ] = useState(true);
     
     function handleClick() {
         setIsLightTheme(prev => !prev);

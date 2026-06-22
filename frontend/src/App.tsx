@@ -25,6 +25,7 @@ function App() {
   const [ showPlayBtn, setShowPlayBtn ] = useState<boolean>(false);
   const [ showGameOver, setShowGameOver ] = useState(false);
   const [ finishedAllLevels, setFinishedAllLevels ] = useState(false);
+  const [ speakerOn, setSpeakerOn ] = useState(true);
 
 
   const value = {
@@ -42,7 +43,8 @@ function App() {
     leaderBoardData, setLeaderBoardData,
     showPlayBtn, setShowPlayBtn,
     showGameOver, setShowGameOver,
-    finishedAllLevels, setFinishedAllLevels
+    finishedAllLevels, setFinishedAllLevels,
+    speakerOn, setSpeakerOn
   }
 
   return (
