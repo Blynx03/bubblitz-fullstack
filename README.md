@@ -1,156 +1,302 @@
-# 🎮 Bubblitz — A Timed Reflex & Focus Number Game
+# 🎮 Bubblitz — Full-Stack Timed Reflex & Focus Number Game
 
-**Bubblitz** is a fast-paced, browser-based game built with a modern front-end stack.  
-It challenges players to maintain focus, speed, and accuracy while reacting to increasingly complex visual behaviors — all under time pressure.
+**Bubblitz** is a full-stack browser-based game that challenges players to maintain focus, speed, and accuracy while reacting to increasingly complex visual behaviors under time pressure.
 
-Designed and engineered as a **scalable, animation-heavy React application**, Bubblitz showcases advanced front-end architecture, state management, and performance-driven animation techniques.
+Built with a modern full-stack architecture, Bubblitz combines a highly interactive React front end with a scalable Node.js backend, PostgreSQL cloud database, persistent online leaderboards, and production cloud deployment.
+
+The project demonstrates real-world software engineering practices including API development, database integration, cloud deployment, responsive design, state management, and performance-driven animation systems.
+
+---
+
+## 🏗️ System Architecture
+
+![Architecture Diagram](README-assets/architecture-diagram.png)
 
 ---
 
 ## 🧠 Game Overview
 
-At each level, players are presented with a set of dynamically generated balls, each containing a numerical value.
+At each level, players are presented with dynamically generated numbered balls.
 
 ### 🎯 Objective
-Pop the balls **in the correct order**:
-- **Ascending** (lowest → highest), or
-- **Descending** (highest → lowest)
 
-The required order is randomly determined per level, forcing players to stay alert and adapt quickly.
+Pop the balls in the required order:
+
+* **Ascending** (lowest → highest)
+* **Descending** (highest → lowest)
+
+The required order changes dynamically every level, forcing players to remain focused and adapt quickly under pressure.
+
+---
+
+## 🏆 Online Leaderboard System
+
+Bubblitz includes a fully integrated leaderboard powered by a cloud-hosted PostgreSQL database.
+
+### Features
+
+* Persistent score storage
+* Online leaderboard rankings
+* Top 25 qualification system
+* Automatic rank calculation
+* Score submission validation
+* Server-side processing
+* Real-time API communication
+
+Players who achieve a qualifying score are prompted to submit their information for leaderboard inclusion.
 
 ---
 
 ## ⏱️ Timed Gameplay & Progression
 
-- The game **starts from Level 1** with generous time limits.
-- As players progress, **time is reduced at specific milestone levels**, significantly increasing difficulty.
-- Failure to clear a level before time runs out results in **Game Over**.
-- Extra lives are awarded **every 10 levels cleared**, rewarding consistency and precision.
+* Starts at **Level 1**
+* Time decreases at milestone levels
+* Difficulty scales progressively
+* Failure before timer expiration results in **Game Over**
+* Bonus lives awarded every 10 levels
+* Advanced behaviors unlock at higher levels
 
-This time-based progression creates a strong balance between **speed, accuracy, and decision-making under pressure**.
+This creates a strong balance between:
+
+* Speed
+* Accuracy
+* Pattern Recognition
+* Decision Making Under Pressure
 
 ---
 
 ## ✨ Core Gameplay Features
 
-- 🎲 **Randomized Ball Generation**
-- 🔢 **Ascending / Descending Order Challenges**
-- ❤️ **Three-Life System** with bonus life rewards
-- ⏳ **Timed Levels with Dynamic Time Reduction**
-- 🌗 **Light & Dark Theme Modes**
-- 🎯 **Clear Visual Feedback for Correct & Incorrect Actions**
-- 🔁 **Replayable, Non-Predictable Gameplay**
+* 🎲 Randomized Ball Generation
+* 🔢 Ascending / Descending Challenges
+* ❤️ Three-Life System
+* ⏳ Progressive Timer Reduction
+* 🏆 Persistent Online Leaderboard
+* 🌗 Light & Dark Theme Support
+* 🎯 Visual Feedback System
+* 🔁 High Replayability
 
 ---
 
 ## 🌀 Advanced Ball Behaviors
 
-As levels increase, balls gain additional independent behaviors, often combined simultaneously:
+As levels increase, balls gain independent behaviors that may occur simultaneously:
 
-- 🏃 **Movement** (horizontal / vertical directions)
-- 🔄 **Rotation** (clockwise or counter-clockwise)
-- 👻 **Value Vanishing & Reappearing**
-- 📏 **Dynamic Size Changes** (shrink & restore)
-- 🧠 **Randomized Behavior Assignment per Ball**
+* 🏃 Dynamic Movement
+* 🔄 Clockwise Rotation
+* 🔁 Counter-Clockwise Rotation
+* 👻 Value Vanishing & Reappearing
+* 📏 Dynamic Size Transformation
+* 🧠 Randomized Per-Ball Behaviors
 
-Each behavior is modular and level-driven, allowing the game to scale in complexity without increasing code fragility.
+The system is designed to scale difficulty without increasing code fragility.
 
 ---
 
-## ⚙️ Architecture & Performance
+## ⚙️ Full-Stack Architecture
 
-- Smooth, frame-accurate animations powered by **`requestAnimationFrame`**
-- Centralized game state using **React Context**
-- Strongly-typed game entities using **TypeScript discriminated unions**
-- Custom hooks for:
-  - Container size tracking
-  - Timers
-  - Game quitting & cleanup
-- Clean separation between:
-  - Game logic
-  - Animation logic
-  - UI components
-- Predictable re-render behavior and animation cleanup
+### Frontend
 
-The architecture is intentionally built to be **extensible, testable, and maintainable**.
+Responsibilities:
+
+* Game Rendering
+* User Interaction
+* Animation Engine
+* Score Submission
+* Leaderboard Presentation
+* Theme Management
+
+### Backend
+
+Responsibilities:
+
+* REST API Endpoints
+* Score Validation
+* Rank Calculation
+* Leaderboard Processing
+* Error Handling
+* Environment Configuration
+
+### Database
+
+Responsibilities:
+
+* Score Persistence
+* Player Information Storage
+* Ranking Calculations
+* Historical Score Tracking
 
 ---
 
 ## 🛠️ Tech Stack
 
-### Core Technologies
-- **React** — Component-based UI architecture
-- **TypeScript** — Type safety, scalability, and maintainability
-- **JavaScript (ES6+)** — Game logic & utilities
-- **HTML5** — Semantic structure
-- **CSS3** — Animations, transitions, and theming
+### Frontend
 
-### Advanced Techniques
-- **React Hooks** — `useState`, `useEffect`, `useRef`, `useContext`
-- **requestAnimationFrame** — High-performance motion handling
-- **Dynamic inline animations** combined with CSS keyframes
-- **Context-driven game state management**
+* React
+* TypeScript
+* Vite
+* JavaScript (ES6+)
+* HTML5
+* CSS3
+
+### Backend
+
+* Node.js
+* Express.js
+* REST API Architecture
+
+### Database
+
+* PostgreSQL
+* Neon Cloud Database
+* Prisma ORM
+
+### Cloud & Deployment
+
+* Vercel
+* Render
+
+### Development Tools
+
+* Git
+* GitHub
+* VS Code
+* Chrome DevTools
+* Firefox DevTools
+
+---
+
+## 🚀 Engineering Highlights
+
+### Frontend Engineering
+
+* React Context API
+* Custom Hooks
+* requestAnimationFrame
+* Responsive Design
+* Dynamic CSS Animations
+* Theme Management
+
+### Backend Engineering
+
+* RESTful API Development
+* Environment Variables
+* CORS Configuration
+* Server-Side Validation
+* Error Handling
+
+### Database Engineering
+
+* Prisma ORM
+* PostgreSQL Schema Design
+* Database Migrations
+* Persistent Data Storage
+
+### Cloud Engineering
+
+* Vercel Deployment
+* Render Deployment
+* Neon Database Hosting
 
 ---
 
 ## 🌗 Theme Support
 
-- Fully implemented **Light Mode / Dark Mode**
-- Theme state shared globally
-- Visual clarity preserved across all animations and levels
+* Light Mode
+* Dark Mode
+* Global Theme State
+* Consistent Visual Experience
 
 ---
 
 ## 📸 Game Screenshots
 
-- **Main Page** — Landing screen and theme presentation  
-![Image](src/assets/images/MainPage.png)
+<!-- ### Main Page -->
 
+- **Main Page** — Landing screen featuring responsive design, light/dark theme support, animated UI elements, and quick access to gameplay and leaderboard functionality.
 
-- **How-To-Play Page** — Clear instructions and gameplay rules  
-![Image](src/assets/images/HowToPage.png)
+![Main Page](README-assets/MainPage.png)
 
+<!-- ### How To Play -->
+- **How-To-Play Page** — Dedicated instruction page explaining gameplay mechanics, scoring rules, level progression, lives system, and advanced ball behaviors.
 
-- **Play Page** — Live gameplay area with animations, timer, and HUD  
-![Image](src/assets/images/PlayPage.png)
+![How To Play](README-assets/HowToPlay.png)
+
+<!-- ### Gameplay -->
+- **Gameplay Screen** — Live game interface showcasing the timer system, level progression, lives tracking, dynamic ball generation, animations, and real-time player interaction.
+
+![Gameplay](README-assets/Gameplay.png)
+
+<!-- ### Online Leaderboard -->
+- **All-Time Leaderboard** - Persistent online leaderboard displaying player rankings, scores, levels reached, completion times, and historical leaderboard records stored in PostgreSQL.
+
+![Leaderboard](README-assets/AllTimeLeaderboard.png)
+
+- **Top 25 Qualification Evaluation** - Server-validated qualification screen that determines whether a player's score ranks within the current Top 25 leaderboard before allowing score submission.
+
+![Top 25 Qualification](README-assets/Top25Qualification-Submission.png)
+
+- **Top 25 Leaderboard Submission** - Dedicated leaderboard view displayed after successful qualification and score submission, highlighting the player's newly earned ranking position.
+
+![Top 25 Leaderboard](README-assets/Top25Leaderboard.png)
+
+- **Game Over Screen** - End-of-game interface providing performance feedback, qualification status, replay options, leaderboard access, and score submission workflow.
+
+![Game Over](README-assets/GameOver.png)
+
+- **System Architecture Diagram** - High-level overview of the full-stack architecture, illustrating communication between the React frontend, Express API, Prisma ORM, PostgreSQL database, and cloud hosting providers.
+
+![System Architecture](README-assets/SystemArchitecture.png)
+
+- **Database Schema Diagram - Visual representation of the PostgreSQL database structure, Prisma models, entity relationships, and score storage architecture powering the leaderboard system.
+
+![Database Schema](README-assets/DatabaseSchema.png)
+
+- **Responsive Mobile Experience** - Optimized mobile interface tested across desktop, tablet, and mobile browsers with adaptive layouts and touch-friendly interactions.
+
+![Mobile Experience](README-assets/MobileExperience.png)
 
 ---
 
-## 🎯 Project Goals & Developer Focus
+## 🎯 Project Goals
 
 This project was built to:
 
-- Demonstrate **advanced front-end engineering skills**
-- Explore **real-time animation systems** in React
-- Apply **TypeScript for complex game state modeling**
-- Build a **non-trivial, scalable interactive application**
-- Showcase clean, production-ready front-end architecture
+* Demonstrate Full-Stack Development Skills
+* Build Production-Ready Software
+* Explore Advanced React Architecture
+* Design REST APIs
+* Integrate Cloud Databases
+* Deploy Applications to Production
+* Practice Real-World Software Engineering
 
 ---
 
-## 👨‍💻 About this Game App
+## 👨‍💻 About This Project
 
-Bubblitz is developed with a strong focus on:
+Bubblitz evolved from a front-end game into a complete full-stack application.
 
-- Modern React patterns
-- Type-safe application design
-- Performance-conscious animation systems
-- Clean, maintainable codebases
-- User-centric interactive experiences
+The project demonstrates the ability to design, build, deploy, and maintain software across:
 
-This project reflects real-world front-end problem-solving beyond static UI work.
+* Frontend Development
+* Backend Development
+* Database Design
+* Cloud Infrastructure
+* Application Deployment
 
 ---
 
 ## 🚀 Possible Future Enhancements
 
-- 🏆 Scoring system & leaderboards
-- 📱 Mobile & touch gesture support
-- ⚙️ Difficulty presets
-- ♿ Accessibility options
+* 🏅 Achievement System
+* 📊 Statistics Dashboard
+* 👤 Player Profiles
+* 🌎 Global Rankings
+* 🤝 Multiplayer Competitions
+* 📱 Enhanced Mobile Experience
 
 ---
 
 ## 📄 License
 
-This project is created for **educational and personal portfolio use**.
+This project is created for educational, portfolio, and demonstration purposes.

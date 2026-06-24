@@ -29,14 +29,14 @@ const ThemeMode = () => {
                     <div 
                         className={`theme-btn ${isLightTheme ? 'light-mode' : 'dark-mode'}`}
                         onClick={handleClick}>
-                        <span className="theme material-symbols-outlined">
+                        <span className="theme material-symbols-outlined" title={`Click to change to ${isLightTheme ? 'Dark' : 'Light'} Mode!`}>
                             {isLightTheme ? 'light_mode' : 'dark_mode'}
                         </span>
                     </div>
                 </div>
             </div>
             <div className='volume-container'>
-                <span className={`material-symbols-outlined volume ${speakerOn ? 'speaker-on' : 'speaker-off'}`} onClick={() => clickVolume()}>{speakerOn ? 'volume_up' : 'volume_off'}</span>
+                <span title={speakerOn ? 'Click to remove background music!' : 'Click to play background music!'} className={`material-symbols-outlined volume ${speakerOn ? 'speaker-on' : 'speaker-off'}`} onClick={() => clickVolume()}>{speakerOn ? 'volume_up' : 'volume_off'}</span>
             </div>
         </div>
     )

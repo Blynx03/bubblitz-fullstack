@@ -145,6 +145,7 @@ body {
 
 .title-container {
   /* height: clamp(2.8rem, 5vw, 6.6rem); */
+  height: 100%;
   display: flex;
   justify-content: center;
   padding-top: 0.5%;
@@ -166,7 +167,8 @@ body {
   font-family: var(--font-primary);
   display: flex;
   justify-content: flex-start;
-  margin-top: 0.4rem;
+  height: 100%;
+  /* margin-top: 0.4rem; */
 }
 
 .tz-title, .bl-title {
