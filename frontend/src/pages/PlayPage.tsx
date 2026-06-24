@@ -338,7 +338,7 @@ const PlayPage = () => {
       </div>
       <div className={ !showPlayBtn ? 'play-page-btn-container' : 'play-page-btn-container1'}>
         <Button btnClass='play-page-btns play-page-quit-btn quit-btn btn' btnText='Quit' onClick={() => btnClick('')} />
-        { showPlayBtn && <Button btnClass='play-page-btns play-btn btn' btnText='Play Again' onClick={() => btnClick('play')} /> }
+        { showPlayBtn && <Button btnClass='play-page-btns play-page-play-btn play-btn btn' btnText='Play Again' onClick={() => btnClick('play')} /> }
       </div>
       <Footer />
     </div>
