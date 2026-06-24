@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import UserContext, { type UserContextType } from '../context/UserContext';
 import { getCurrentBackgroundMusic, playLoopSound, stopSound, type SoundKey } from '../utilities/soundController';
 
@@ -6,7 +6,6 @@ import { getCurrentBackgroundMusic, playLoopSound, stopSound, type SoundKey } fr
 const ThemeMode = () => {
 
     const { isLightTheme, setIsLightTheme, speakerOn, setSpeakerOn } = useContext(UserContext) as UserContextType;
-    // const [ speakerOn, setSpeakerOn ] = useState(true);
     
     function handleClick() {
         setIsLightTheme(prev => !prev);

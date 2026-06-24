@@ -1033,9 +1033,6 @@ header {
   padding-left: 4%;
 }
 
-input::placeholder {
-
-}
 .submit-score-btn {
   margin-top: 6px;
 }
@@ -1065,9 +1062,6 @@ input::placeholder {
   align-items: center;
 }
 
-@keyframes finished {
-  
-}
 .finished-title {
   font-size: clamp(1.6rem, 5vw, 3rem);
   color: var(--warning-color);
